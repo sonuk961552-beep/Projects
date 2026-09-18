@@ -25,6 +25,14 @@ const App = () => {
     setDetails("");
   }
 
+  const deleteBtn = (idx)=>{
+    const copyTask = [...task];
+    console.log(copyTask[idx])
+    copyTask.splice(idx,1)
+    setTask(copyTask)
+
+  }
+
   // i am chnageing something here
   return (
     <div className="start">
@@ -59,6 +67,7 @@ const App = () => {
           return (
             
             <div key={idx} className="notepad">
+              <button onClick={()=>deleteBtn(idx)} className="X">X</button>
               <h2 className="h2">{e.time}</h2>
               <p className="p">{e.details}</p>
             </div>
